@@ -1,20 +1,30 @@
+import { createClient } from "next-sanity";
+
 const HomePage = ({ product }) => {
   return (
     <div>
       {product.map((props) => {
-        return <div key={props.id}>{props.name}</div>;
+        console.log(props.image);
+        return (
+          <span className="bg-dark" key={props.id}>
+            {props.name}
+            {props.price}
+          </span>
+        );
       })}
     </div>
   );
 };
+
+const client = createClient({
+  projectId: "f0p88h7i",
+  dataset: "production",
+  apiVersion: "2023-01-06",
+  useCdn: false,
+});
+
 export async function getStaticProps() {
-  const product = [
-    {
-      id: 1,
-      name: "Product 1",
-      price: 100,
-    },
-  ];
+  const product = await client.fetch(`*[_type == "product"]`);
 
   return {
     props: {
