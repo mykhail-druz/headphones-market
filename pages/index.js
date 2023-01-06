@@ -1,12 +1,16 @@
+import React from "react";
+
 import { createClient } from "next-sanity";
 
-const HomePage = () => {
+import { Product, FooterBanner, HeaderBanner } from "../components";
+
+function HomePage() {
   return (
     <>
       Banner
       <div className="products-heading">
         <h2>Best sellings</h2>
-        <p>Speakers categories</p>
+        <p>Speakers of many variations</p>
       </div>
       <div className="products-container">
         {['Product 1', 'Product 2'].map((product) => product)}
@@ -14,7 +18,7 @@ const HomePage = () => {
       Footer
     </>
   );
-};
+}
 
 const client = createClient({
   projectId: "f0p88h7i",
