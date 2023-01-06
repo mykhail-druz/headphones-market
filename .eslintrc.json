@@ -1,3 +1,28 @@
 {
-  "extends": ["next/babel", "next/core-web-vitals"]
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true
+  },
+  "extends": ["next/core-web-vitals", "airbnb/base"],
+  "plugins": ["import"],
+  "rules": {
+    "semi": "error",
+    "quotes": "off",
+    "no-console": "error",
+    "no-unused-vars": "error",
+    "no-undef": "error",
+    "no-underscore-dangle": "off",
+    "no-plusplus": "off",
+    "no-restricted-syntax": "off",
+    "no-await-in-loop": "off",
+    "no-param-reassign": "off",
+    "no-shadow": "off",
+    "no-use-before-define": "off",
+    "no-continue": "off",
+    "no-prototype-builtins": "off",
+    "no-else-return": "off",
+    "no-nested-ternary": "off",
+    "max-len": ["error", 200]
+  }
 }

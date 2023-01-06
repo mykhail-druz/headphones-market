@@ -1,9 +1,7 @@
-import React from 'react'
+import React from 'react';
 
-const HeaderBanner = () => {
-  return (
+const HeaderBanner = () => (
     <div>HeaderBanner</div>
-  )
-}
+);
 
-export default HeaderBanner
+export default HeaderBanner;

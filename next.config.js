@@ -4,6 +4,9 @@ const nextConfig = {
   images: {
     domains: ["cdn.sanity.io"],
     loader: "custom",
+    experimental: {
+      forceSwcTransforms: true,
+    },
   },
 };
 
