@@ -1,18 +1,18 @@
 import { createClient } from "next-sanity";
 
-const HomePage = ({ product }) => {
+const HomePage = () => {
   return (
-    <div>
-      {product.map((props) => {
-        console.log(props.image);
-        return (
-          <span className="bg-dark" key={props.id}>
-            {props.name}
-            {props.price}
-          </span>
-        );
-      })}
-    </div>
+    <>
+      Banner
+      <div className="products-heading">
+        <h2>Best sellings</h2>
+        <p>Speakers categories</p>
+      </div>
+      <div className="products-container">
+        {['Product 1', 'Product 2'].map((product) => product)}
+      </div>
+      Footer
+    </>
   );
 };
 
