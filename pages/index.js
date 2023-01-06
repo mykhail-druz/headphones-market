@@ -1,10 +1,11 @@
 import React from "react";
 
 import { createClient } from "next-sanity";
-
+import React from "react";
 import { Product, FooterBanner, HeaderBanner } from "../components";
 
-function HomePage() {
+const HomePage = ({ product }) => {
+
   return (
     <>
       Banner
@@ -13,7 +14,9 @@ function HomePage() {
         <p>Speakers of many variations</p>
       </div>
       <div className="products-container">
-        {['Product 1', 'Product 2'].map((product) => product)}
+        {product.map((product) => {
+          return <div key={product.id}>{product.name}</div>;
+        })}
       </div>
       Footer
     </>
