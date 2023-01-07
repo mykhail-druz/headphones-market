@@ -1,6 +1,6 @@
-import React from "react";
 import "bootstrap/dist/css/bootstrap.css";
-import "../styles/globals.css";
+import "/src/styles/globals.css";
+import React from "react";
 import Head from "next/head";
 
 export default function App({ Component, pageProps }) {
