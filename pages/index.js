@@ -12,7 +12,6 @@ const HomePage = ({ product, bannerData }) => (
       <h2>Best sellings</h2>
       <p>Speakers of many variations</p>
     </div>
-
     <div className="products-container">
       {product?.map((product) => (
         <section key={product.id}>
