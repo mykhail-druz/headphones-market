@@ -385,7 +385,7 @@ span.text-red {
   width: 400px;
   margin: auto;
 }
-.btn {
+/* .btn {
   width: 100%;
   max-width: 400px;
   padding: 10px 12px;
@@ -403,7 +403,7 @@ span.text-red {
 }
 .btn:hover {
   transform: scale(1.1, 1.1);
-}
+} */
 .product-detail-container {
   display: flex;
   gap: 40px;
