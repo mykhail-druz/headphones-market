@@ -3,26 +3,18 @@ import { createClient } from "next-sanity";
 import { async } from "rxjs";
 import Link from "next/link";
 import { client } from "/src/lib/client";
-import { Product, FooterBanner, HeaderBanner } from "/src/components";
+import { Product, FooterBanner, HeroBanner } from "/src/components";
 
 const HomePage = ({ product, bannerData }) => (
   <div>
-    <HeaderBanner heroBanner={bannerData.length && bannerData[0]} />
+    <HeroBanner heroBanner={bannerData.length && bannerData[0]} />
     <div className="products-heading">
       <h2>Best sellings</h2>
       <p>Speakers of many variations</p>
     </div>
 
     <div className="products-container">
-      {product?.map((product) => (
-        <section key={product.id}>
-          <span>{product.name}</span>
-          <br />
-          <Link href={`/product/${product.slug.current}`}>
-            <span>Buy Now</span>
-          </Link>
-        </section>
-      ))}
+      {product?.map((product) => <Product key={product._id} product={product} />)}
     </div>
 
     <FooterBanner />
