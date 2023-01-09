@@ -1,20 +1,65 @@
-import Link from "next/link";
 import React from "react";
-import { client, urlFor } from "../../src/lib/client";
+import Link from "next/link";
+import { client, urlFor } from "~/lib/client";
+import Button from "~/components/Button/button";
 
 const ProductPage = ({ product, products }) => {
-  const { name, description, price, image } = product;
+  const {
+    name, details, price, image,
+  } = product;
 
   return (
-    <div className="">
-      {image && (
-        <img width={"480"} height={"480"} src={urlFor(image && image[0])} />
-      )}
-      <div className="container">
-        <h1>{name}</h1>
-        <p>{description}</p>
-        <p>{price}</p>
-        <Link href={"/"}>Buy now</Link>
+    <div className="tw-w-full">
+      <div className="tw-flex tw-flex-col tw-mx-auto tw-w-2/3 tw-justify-center">
+        <Link href={"/"}>
+          <span className="tw-text-xl tw-duration-500"> &lsaquo; Back</span>
+        </Link>
+        <div className="tw-flex tw-space-x-2">
+          <div className="tw-flex tw-space-x-2">
+            {image && (
+              <img
+                className="tw-ml-auto tw-w-2/3 tw-border tw-border-neutral-300 rounded-2"
+                width={"200"}
+                height={"200"}
+                src={urlFor(image && image[0])}
+              />
+            )}
+            <div className="tw-flex tw-flex-col tw-space-y-2">
+              {image && (
+                <img
+                  width={"128"}
+                  height={"128"}
+                  src={urlFor(image && image[0])}
+                  className="tw-border tw-border-neutral-300 rounded-2"
+                />
+              )}
+              {image && (
+                <img
+                  width={"128"}
+                  height={"128"}
+                  src={urlFor(image && image[0])}
+                  className="tw-border tw-border-neutral-300 rounded-2"
+                />
+              )}
+              {image && (
+                <img
+                  width={"128"}
+                  height={"128"}
+                  src={urlFor(image && image[0])}
+                  className="tw-border tw-border-neutral-300 rounded-2"
+                />
+              )}
+            </div>
+          </div>
+          <div className="tw-flex tw-flex-col tw-space-y-4 tw-w-2/3 tw-my-auto">
+            <h1 className="tw-text-2xl">{name}</h1>
+            <p>{details}</p>
+            <p className="tw-text-lg">{price} $</p>
+            <Button link={"/"} outline={false}>
+              Buy now
+            </Button>
+          </div>
+        </div>
       </div>
     </div>
   );
@@ -34,6 +79,7 @@ export const getStaticProps = async ({ params: { slug } }) => {
     },
   };
 };
+
 export const getStaticPaths = async () => {
   const query = '*[_type == "product"] {slug{current}}';
   const products = await client.fetch(query);

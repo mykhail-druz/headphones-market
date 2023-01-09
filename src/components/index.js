@@ -1,7 +1,7 @@
-export { default as HeroBanner } from "./HeroBanner";
-export { default as Cart } from "./Cart";
-export { default as Footer } from "./Footer";
-export { default as FooterBanner } from "./FooterBanner";
-export { default as Layout } from "./Layout";
-export { default as Navbar } from "./Navbar";
-export { default as Product } from "./Product";
+export { default as Product } from "./Product/product";
+export { default as HeroBanner } from "./Header/herobanner";
+export { default as Navbar } from "./Header/navbar";
+export { default as Footer } from "./Footer/footer";
+export { default as Footerbanner } from "./Footer/footerbanner";
+export { default as Cart } from "./Cart/cart";
+export { default as Button } from "./Button/button";
