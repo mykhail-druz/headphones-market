@@ -31,6 +31,7 @@
   "config": {},
   "devDependencies": {
     "@babel/plugin-proposal-export-default-from": "^7.18.10",
+    "@svgr/webpack": "^6.5.1",
     "autoprefixer": "^10.4.13",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-next": "13.1.1",
@@ -39,6 +40,7 @@
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-jsx-a11y": "^6.6.1",
     "eslint-plugin-prettier": "^4.2.1",
+    "module-alias": "^2.2.2",
     "postcss": "^8.4.21",
     "prettier": "^2.8.1",
     "tailwindcss": "^3.2.4"

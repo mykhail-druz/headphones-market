@@ -1,6 +1,6 @@
 import React from "react";
-import { client, urlFor } from "/src/lib/client";
-import { Button } from "/src/components";
+import { client, urlFor } from "~/lib/client";
+import { Button } from "~/components/button";
 
 const ProductPage = ({ product, products }) => {
   const { name, details, price, image } = product;

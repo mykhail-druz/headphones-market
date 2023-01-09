@@ -1,9 +1,8 @@
 import React from "react";
-import { createClient } from "next-sanity";
-import { async } from "rxjs";
-import Link from "next/link";
-import { client } from "/src/lib/client";
-import { Product, FooterBanner, HeroBanner } from "/src/components";
+import { client } from "~/lib/client";
+import { Product } from "~/components/product/product";
+import { HeroBanner } from "~/components/header/herobanner";
+import { FooterBanner } from "~/components/footer/footerbanner";
 
 const HomePage = ({ product, bannerData }) => (
   <div>
@@ -13,12 +12,16 @@ const HomePage = ({ product, bannerData }) => (
       <p>Speakers of many variations</p>
     </div>
     <div className="products-container">
-      {product?.map((product) => <Product key={product._id} product={product} />)}
+      {product?.map((product) => (
+        <Product key={product._id} product={product} />
+      ))}
     </div>
 
     <FooterBanner />
   </div>
 );
+
+export default HomePage;
 
 export const getServerSideProps = async () => {
   const query = '*[_type == "product"]';
@@ -33,5 +36,3 @@ export const getServerSideProps = async () => {
     },
   };
 };
-
-export default HomePage;
