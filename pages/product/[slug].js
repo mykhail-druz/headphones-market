@@ -4,9 +4,7 @@ import { client, urlFor } from "~/lib/client";
 import Button from "~/components/Button/button";
 
 const ProductPage = ({ product, products }) => {
-  const {
-    name, details, price, image,
-  } = product;
+  const { name, details, price, image } = product;
 
   return (
     <div className="tw-w-full">
