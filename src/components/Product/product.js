@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
-
-import { urlFor } from "/src/lib/client";
+import { urlFor } from "~/lib/client";
+import Button from "~/components/Button/button";
 
 const Product = ({
   product: {
@@ -24,8 +24,8 @@ const Product = ({
             <p className="product-name">{name}</p>
             <p className="product-price">${price}</p>
           </div>
-          <div className="text-b m-3">
-            <button className="btn btn-dark">Buy</button>
+          <div className="tw-ml-auto tw-mt-auto tw-mb-6">
+            <Button link={`/product/${slug.current}`}>Buy</Button>
           </div>
         </div>
       </div>

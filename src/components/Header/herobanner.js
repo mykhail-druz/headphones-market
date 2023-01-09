@@ -1,9 +1,8 @@
 import Link from "next/link";
 import React from "react";
+import { urlFor } from "../../lib/client";
 
-import { urlFor } from "~/lib/client";
-
-export const HeroBanner = ({ heroBanner }) => (
+const HeroBanner = ({ heroBanner }) => (
   <div className="hero-banner-container">
     <div>
       <p className="beats-solo">{heroBanner.smallText}</p>
@@ -13,6 +12,8 @@ export const HeroBanner = ({ heroBanner }) => (
         src={urlFor(heroBanner.image)}
         alt="headphones"
         className="hero-banner-image"
+        width={"400"}
+        height={"400"}
       />
       <div>
         <Link href={`/product/${heroBanner.product}`}>
@@ -26,3 +27,4 @@ export const HeroBanner = ({ heroBanner }) => (
     </div>
   </div>
 );
+export default HeroBanner;

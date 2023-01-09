@@ -2,7 +2,7 @@ import React from "react";
 import classNames from "classnames";
 import Link from "next/link";
 
-export const Button = ({
+const Button = ({
   children, link, className, outline,
 }) => (
   <Link href={link}>
@@ -19,3 +19,4 @@ export const Button = ({
     </span>
   </Link>
 );
+export default Button;
