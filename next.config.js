@@ -12,6 +12,11 @@ const nextConfig = {
   },
   webpack: (config) => {
     config.resolve.modules.push(path.resolve("./"));
+    config.module.rules.push({
+      test: /\.svg$/i,
+      issuer: /\.[jt]sx?$/,
+      use: ["@svgr/webpack"],
+    });
 
     return config;
   },

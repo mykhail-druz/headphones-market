@@ -1,4 +1,5 @@
 import React from "react";
 
-const FooterBanner = () => <div>FooterBanner</div>;
+const FooterBanner = () => <div></div>;
+
 export default FooterBanner;
