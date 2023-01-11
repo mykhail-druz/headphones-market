@@ -15,12 +15,12 @@ const Product = ({
             src={urlFor(image && image[0])}
             width={250}
             height={250}
-            className="product-image"/>
+            className="product-image tw-w-60 tw-h-60 "/>
         )}
         <div className="d-flex">
           <div className="m-3">
             <p className="product-name">{name}</p>
-            <p className="product-price">${price}</p>
+            <p className="product-price">{price} ₴</p>
           </div>
         </div>
       </div>

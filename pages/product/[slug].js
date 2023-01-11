@@ -54,7 +54,7 @@ const ProductPage = ({ product, products }) => {
           <div className="tw-flex tw-flex-col tw-space-y-4 tw-w-2/3 tw-my-auto">
             <h1 className="tw-text-2xl">{name}</h1>
             <p>{details}</p>
-            <p className="tw-text-lg">{price} $</p>
+            <p className="tw-text-lg">{price} ₴</p>
             <Button link={"/"} outline={false}>
               Buy now
             </Button>
