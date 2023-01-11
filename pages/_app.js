@@ -2,7 +2,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import "~/styles/globals.css";
 import React from "react";
 import Head from "next/head";
-import Navbar from "~/components/Header/navbar";
+import Layout from "~/Layouts/layout";
 
 export default function App({ Component, pageProps }) {
   return (
@@ -10,8 +10,9 @@ export default function App({ Component, pageProps }) {
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
-      <Navbar />
+      <Layout>
       <Component {...pageProps} />
+      </Layout>
     </>
   );
 }
