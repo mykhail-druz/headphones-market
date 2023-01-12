@@ -1,5 +1,5 @@
 import React from "react";
-import {AiOutlineMinus, AiOutlinePlus} from 'react-icons/ai';
+import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
 
 import Link from "next/link";
 import { client, urlFor } from "~/lib/client";
@@ -11,7 +11,7 @@ const ProductPage = ({ product, products }) => {
     name, details, price, image,
   } = product;
 
-  const {decQty, incQty, qty} = useStateContext();
+  const { decQty, incQty, qty } = useStateContext();
 
   return (
     <div className="tw-w-full">
