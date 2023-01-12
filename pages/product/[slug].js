@@ -1,12 +1,17 @@
 import React from "react";
+import {AiOutlineMinus, AiOutlinePlus} from 'react-icons/ai';
+
 import Link from "next/link";
 import { client, urlFor } from "~/lib/client";
 import Button from "~/components/Button/button";
+import { useStateContext } from "~/context/StateContext";
 
 const ProductPage = ({ product, products }) => {
   const {
     name, details, price, image,
   } = product;
+
+  const {decQty, incQty, qty} = useStateContext();
 
   return (
     <div className="tw-w-full">
@@ -55,6 +60,14 @@ const ProductPage = ({ product, products }) => {
             <h1 className="tw-text-2xl">{name}</h1>
             <p>{details}</p>
             <p className="tw-text-lg">{price} ₴</p>
+            <div className="quantity">
+              <h3>Quantity:</h3>
+              <p className="quantity-desc">
+                <span className="minus" onClick={decQty}><AiOutlineMinus /></span>
+                <span className="num">{qty}</span>
+                <span className="plus" onClick={incQty}><AiOutlinePlus /></span>
+              </p>
+            </div>
             <Button link={"/"} outline={false}>
               Buy now
             </Button>

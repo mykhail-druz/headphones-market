@@ -3,10 +3,16 @@ import { Footer, Navbar } from '~/components';
 
 export default function Layout({ children }) {
   return (
-      <>
-        <Navbar />
-        {children}
-        <Footer />
-      </>
+      <div>
+        <header>
+          <Navbar />
+        </header>
+        <main>
+          {children}
+        </main>
+        <footer>
+          <Footer />
+        </footer>
+      </div>
   );
 }
