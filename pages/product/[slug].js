@@ -1,10 +1,17 @@
 import React from "react";
+import {AiOutlineMinus, AiOutlinePlus} from 'react-icons/ai';
+
 import Link from "next/link";
 import { client, urlFor } from "~/lib/client";
 import { Button, ItemCount, ProductImages } from "~/components";
+import { useStateContext } from "~/context/StateContext";
 
 const ProductPage = ({ product, products }) => {
-  const { name, details, price, image } = product;
+  const {
+    name, details, price, image,
+  } = product;
+
+  const {decQty, incQty, qty} = useStateContext();
 
   return (
     <div className="tw-w-full tw-my-auto tw-mt-14">
@@ -21,17 +28,14 @@ const ProductPage = ({ product, products }) => {
               <p className="tw-text-xl tw-font-bold">{price} ₴</p>
               <p className="tw-text-xl">{details}</p>
             </div>
-            <div className="tw-flex tw-flex-col tw-mt-auto tw-w-full tw-space-y-8">
-              <ItemCount />
-              <div className="tw-flex tw-flex-col tw-space-y-2">
-                <Button link={"/"} outline={true}>
-                  Add to Cart
-                </Button>
-                <Button link={"/"} outline={false}>
-                  Buy now
-                </Button>
-              </div>
-            </div>
+          </div>
+          <div className="tw-flex tw-flex-col tw-space-y-4 tw-w-2/3 tw-my-auto">
+            <h1 className="tw-text-2xl">{name}</h1>
+            <p>{details}</p>
+            <p className="tw-text-lg">{price} ₴</p>
+            <Button link={"/"} outline={false}>
+              Buy now
+            </Button>
           </div>
         </div>
       </div>
