@@ -17,8 +17,21 @@ body,
 
 a {
   text-decoration: none;
+  color: black;
 }
-
+a:hover {
+  text-decoration: none;
+  color: black;
+}
+.container_top {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  min-height: 100vh;
+}
+.block {
+  flex: 1 0 calc(100% / 4);
+}
+/* ТО что выше не трогать */
 .main-container {
   max-width: 1400px;
   margin: auto;

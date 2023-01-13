@@ -47,6 +47,8 @@
     "import/no-relative-parent-imports": "off",
     "import/no-restricted-paths": "off",
     "import/no-unused-modules": "off",
-    "import/no-absolute-path": "off"
+    "import/no-absolute-path": "off",
+    "linebreak-style": "off",
+    "no-img-element": "off"
   }
 }
