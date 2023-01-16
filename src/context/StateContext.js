@@ -2,6 +2,7 @@ import React, {
   createContext, useContext, useState, useEffect,
 } from 'react';
 import { toast } from 'react-hot-toast';
+import product from 'sanity_e-ushki/schemas/product';
 
 const Context = createContext();
 
@@ -11,6 +12,9 @@ export const StateContext = ({ children }) => {
   const [totalPrice, setTotalPrice] = useState(0);
   const [totalQuantities, setTotalQuantities] = useState(0);
   const [qty, setQty] = useState(1);
+
+  let foundProduct;
+  let index;
 
   const onAdd = (product, quantity) => {
     const checkProductInCart = cartItems.find((item) => item._id === product._id);
@@ -35,6 +39,18 @@ export const StateContext = ({ children }) => {
 
     toast.success(`${qty} ${product.name} додано до кошику.`);
   };
+
+  const toggleCartItemQuantity = (id, value) => {
+    foundProduct = cartItems.find((item) => item._id === id)
+    index = cartItems.findIndex((product) => product._id === id);
+
+    if(value === 'inc') {
+      let newCartItems = [...cartItems, {...product, quantity: product.quantity + 1 } ]
+      setCartItems()
+    } else if(value === 'dec') {
+
+    }
+  }
 
   const incQty = () => {
     setQty((prevQty) => prevQty + 1);

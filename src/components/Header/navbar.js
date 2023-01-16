@@ -15,7 +15,6 @@ const Navbar = () => {
         href={"/"}
         className="tw-flex tw-items-center tw-text-white hover:tw-text-blue-500 tw-duration-500"
       >
-        {/* <Logo className="tw-w-12 tw-h-12" /> */}
         <h1 className="tw-text-2xl">e-USHKI</h1>
       </Link>
       <button
