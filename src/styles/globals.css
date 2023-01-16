@@ -101,7 +101,7 @@ span.text-red {
 }
 .cart-item-qty {
   position: absolute;
-  right: -8px;
+  right: 0px;
   font-size: 12px;
   color: #eee;
   background-color: #f02d34;
@@ -420,6 +420,8 @@ span.text-red {
 }
 .btn:hover {
   transform: scale(1.1, 1.1);
+  background-color: #f02d34;
+  color: #fff;
 }
 .product-detail-container {
   display: flex;
