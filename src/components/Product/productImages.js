@@ -14,28 +14,28 @@ function Productimagess({ images }) {
       )}
       <div className="tw-flex tw-justify-between tw-space-x-1">
         {images && (
-          <img
-            src={urlFor(images && images[0])}
-            className="tw-border tw-border-neutral-300 rounded-2 tw-object-scale-down tw-w-32 tw-h-32"
-          />
+          <div>
+            <img
+              src={urlFor(images && images[1])}
+              className="tw-border tw-border-neutral-300 rounded-2 tw-object-scale-down tw-w-32 tw-h-32"
+            />
+          </div>
         )}
         {images && (
-          <img
-            src={urlFor(images && images[0])}
-            className="tw-border tw-border-neutral-300 rounded-2 tw-object-scale-down tw-w-32 tw-h-32"
-          />
+          <div>
+            <img
+              src={urlFor(images && images[2])}
+              className="tw-border tw-border-neutral-300 rounded-2 tw-object-scale-down tw-w-32 tw-h-32"
+            />
+          </div>
         )}
         {images && (
-          <img
-            src={urlFor(images && images[0])}
-            className="tw-border tw-border-neutral-300 rounded-2 tw-object-scale-down tw-w-32 tw-h-32"
-          />
-        )}
-        {images && (
-          <img
-            src={urlFor(images && images[0])}
-            className="tw-border tw-border-neutral-300 rounded-2 tw-object-scale-down tw-w-32 tw-h-32"
-          />
+          <div>
+            <img
+              src={urlFor(images && images[3])}
+              className="tw-border tw-border-neutral-300 rounded-2 tw-object-scale-down tw-w-32 tw-h-32"
+            />
+          </div>
         )}
       </div>
     </div>
