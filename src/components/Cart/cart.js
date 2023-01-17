@@ -10,9 +10,11 @@ import product from 'sanity_e-ushki/schemas/product';
 import ItemCount from '../ItemCount/itemCount';
 
 const Cart = () => {
-    //const cartRef = userRef();
-    const { totalPrice, totalQuantities, cartItems, setShowCart } = useStateContext();
-    
+  // const cartRef = userRef();
+  const {
+    totalPrice, totalQuantities, cartItems, setShowCart, toggleCartItemQuantity, onRemove,
+  } = useStateContext();
+
   return (
         <div className="cart-wrapper tw-text-black">
             <div className="cart-container">
@@ -46,7 +48,7 @@ const Cart = () => {
                 <div className="product-container">
                     {cartItems.length >= 1 && cartItems.map((item) => (
                         <div className="product" key={item._id}>
-                            <img src={urlFor(item?.image[0])} className="cart-product-image" />
+                            <img src={urlFor(item?.image[0])} className="tw-border tw-cursor-pointer rounded-3 tw-object-scale-down tw-w-24 tw-h-24 lg:tw-w-32 lg:tw-h-32 tw-p-2" />
                             <div className="item-desc">
                                 <div className="flex top">
                                     <h5>{item.name}</h5>
@@ -55,17 +57,17 @@ const Cart = () => {
                                 <div className="flex bottom">
                                     <div className="tw-flex tw-flex-col tw-mt-auto tw-w-full tw-space-y-8">
                                         <div className="tw-border tw-flex tw-justify-between tw-px-2 tw-items-center tw-w-1/3">
-                                            <button className="tw-text-2xl" onClick="">
+                                            <button className="tw-text-2xl" onClick={ () => toggleCartItemQuantity(item._id , 'dec') }>
                                             -
                                             </button>
-                                            <p className="tw-text-xl tw-border-separate">0</p>
-                                            <button className="tw-text-2xl" onClick="">
+                                            <p className="tw-text-xl tw-border-separate">{item.quantity}</p>
+                                            <button className="tw-text-2xl" onClick={ () => toggleCartItemQuantity(item._id , 'inc') }>
                                             +
                                             </button>
                                         </div>
                                     </div>
                                     <div>
-                                        <button type="button" className="remove-item" onClick="">
+                                        <button type="button" className="remove-item" onClick={() => onRemove(item)}>
                                             <TiDeleteOutline />
                                         </button>
                                     </div>
