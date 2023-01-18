@@ -7,3 +7,4 @@ export { default as Button } from "./Button/button";
 export { default as ItemCount } from "./ItemCount/itemCount";
 export { default as ProductImages } from "./Product/productImages";
 export { default as Pagination } from "./Pagination/pagination";
+export { default as LimitText } from "./LimitedText/limitedText";
