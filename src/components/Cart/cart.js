@@ -1,27 +1,42 @@
-import React, { useRef } from 'react';
-import Link from 'next/link';
-import { AiOutlineMinus, AiOutlinePlus, AiOutlineLeft, Shopping} from 'react-icons/ai';
-import { TiDeleteOutline } from 'react-icons/ti';
-import toast from 'react-hot-toast';
+import React, { useRef } from "react";
+import Link from "next/link";
+import { AiOutlineLeft, AiOutlineShopping } from "react-icons/ai";
+import { TiDeleteOutline } from "react-icons/ti";
+import toast from "react-hot-toast";
 
-import { useStateContext } from '~/context/StateContext';
-import { urlFor } from '~/lib/client';
+import { useStateContext } from "~/context/StateContext";
+import { urlFor } from "~/lib/client";
+import product from "sanity_e-ushki/schemas/product";
+import ItemCount from "../ItemCount/itemCount";
 
 const Cart = () => {
-    //const cartRef = userRef();
-    const { totalPrice, totalQuantities, cartItems, setShowCart } = useStateContext();
-    
+  // const cartRef = userRef();
+  const {
+    totalPrice,
+    totalQuantities,
+    cartItems,
+    setShowCart,
+    toggleCartItemQuantity,
+    onRemove,
+  } = useStateContext();
+
   return (
-        <div className="cart-wrapper">
-            <div className="cart-container">
-                <button
-                type="button"
-                className="cart-heading"
-                onClick={() => setShowCart(false)}>
-                    <AiOutlineLeft className="z-index-10"/>
-                    <span className="heading">Your cart</span>
-                    <span className="cart-num-items">({totalQuantities} товарів)</span>
-                </button>
+    <div className="cart-wrapper tw-text-black">
+      <div className="cart-container">
+        <button
+          type="button"
+          className="cart-heading"
+          onClick={() => setShowCart(false)}
+        >
+          <AiOutlineLeft className="tw-text-black" />
+          <span className="heading">Ваш кошик</span>
+          <span className="cart-num-items">({totalQuantities} товарів)</span>
+        </button>
+
+        {cartItems.length < 1 && (
+          <div className="empty-cart">
+            <div className="tw-items-center">
+              <AiOutlineShopping className="tw-mx-auto" size={150} />
             </div>
             <h3>Наразі Ваш кошик ще пустий :(</h3>
             <Link href="/">
@@ -87,7 +102,22 @@ const Cart = () => {
               </div>
             ))}
         </div>
-    )
-}
+        {cartItems.length >= 1 && (
+          <div className="cart-bottom">
+            <div className="total">
+              <h3>Разом:</h3>
+              <h3 className="tw-font-bold ">{totalPrice}₴</h3>
+            </div>
+            <div className="btn-container">
+              <button type="button" className="btn" onClick="">
+                Оформити замовлення
+              </button>
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
 
 export default Cart;

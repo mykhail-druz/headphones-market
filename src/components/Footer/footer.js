@@ -11,9 +11,9 @@ const Footer = () => (
       <Link
         href="https://www.facebook.com/profile.php?id=100007224617013"
         target="_blank"
-        className=" tw-bg-white tw-border-0 tw-rounded-full tw-w-9 tw-h-9 tw-duration-500 tw-text-black hover:tw-bg-black hover:tw-text-white tw-cursor-pointer"
+        className=" tw-bg-white tw-border-0 tw-rounded-full tw-duration-500 tw-text-black hover:tw-bg-black hover:tw-text-white tw-cursor-pointer"
       >
-        <Fb className="tw-p-1" />
+        <Fb className="tw-p-1 tw-w-9 tw-h-9" />
       </Link>
       <Link
         href="https://github.com/mykhail-druz/headphones-market"
