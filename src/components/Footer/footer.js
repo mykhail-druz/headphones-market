@@ -5,10 +5,10 @@ import Ig from "~/icons/Ig.svg";
 import Tg from "~/icons/Tg.svg";
 
 const Footer = () => (
-  <section className="tw-text-white bg-dark tw-flex tw-z-10 tw-w-full tw-justify-center tw-mt-auto">
+  <section className="tw-text-white bg-dark tw-flex tw-w-full tw-justify-center tw-self-end">
     <div className="tw-flex tw-h-[150px] tw-space-x-4 tw-items-center">
-      <span className="tw-bg-white tw-border-0 tw-rounded-full tw-w-9 tw-h-9 tw-duration-500 tw-text-black hover:tw-bg-black hover:tw-text-white tw-cursor-pointer">
-        <Fb className="tw-p-1 tw-w-9 tw-h-9" />
+      <span className="">
+        <Fb className="tw-p-1 tw-w-9 tw-h-9 tw-bg-white tw-border-0 tw-rounded-full tw-duration-500 tw-text-black hover:tw-bg-black hover:tw-text-white tw-cursor-pointer" />
       </span>
       <span className="tw-w-9 tw-h-9 tw-p-1 tw-bg-white tw-border-0 tw-rounded-full tw-duration-500 tw-text-black hover:tw-bg-black hover:tw-text-white tw-cursor-pointer">
         <Gh className="tw-w-7 tw-h-7 tw-scale-[1.4]" />

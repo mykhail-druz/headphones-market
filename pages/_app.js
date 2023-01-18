@@ -1,6 +1,5 @@
 import "bootstrap/dist/css/bootstrap.css";
 import "~/styles/globals.css";
-
 import React from "react";
 import { Toaster } from "react-hot-toast";
 

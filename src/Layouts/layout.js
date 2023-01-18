@@ -1,14 +1,13 @@
 import React from "react";
-import { Footer, Navbar } from "~/components";
+import { Navbar, Footer } from "~/components";
 
-export default function Layout({ children }) {
+function Layout({ children }) {
   return (
-    <div className="tw-flex tw-flex-col tw-min-h-screen">
-      <div>
-        <Navbar />
-        {children}
-      </div>
+    <>
+      <Navbar />
+      <div className="">{children}</div>
       <Footer />
-    </div>
+    </>
   );
 }
+export default Layout;
