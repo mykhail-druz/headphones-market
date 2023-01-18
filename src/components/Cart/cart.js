@@ -1,6 +1,8 @@
 import React, { useRef } from 'react';
 import Link from 'next/link';
-import { AiOutlineMinus, AiOutlinePlus, AiOutlineLeft, Shopping, AiOutlineShopping} from 'react-icons/ai';
+import {
+  AiOutlineLeft, AiOutlineShopping,
+} from 'react-icons/ai';
 import { TiDeleteOutline } from 'react-icons/ti';
 import toast from 'react-hot-toast';
 
@@ -57,11 +59,11 @@ const Cart = () => {
                                 <div className="flex bottom">
                                     <div className="tw-flex tw-flex-col tw-mt-auto tw-w-full tw-space-y-8">
                                         <div className="tw-border tw-flex tw-justify-between tw-px-2 tw-items-center tw-w-1/3">
-                                            <button className="tw-text-2xl" onClick={ () => toggleCartItemQuantity(item._id , 'dec') }>
+                                            <button className="tw-text-2xl" onClick={ () => toggleCartItemQuantity(item._id, 'dec') }>
                                             -
                                             </button>
                                             <p className="tw-text-xl tw-border-separate">{item.quantity}</p>
-                                            <button className="tw-text-2xl" onClick={ () => toggleCartItemQuantity(item._id , 'inc') }>
+                                            <button className="tw-text-2xl" onClick={ () => toggleCartItemQuantity(item._id, 'inc') }>
                                             +
                                             </button>
                                         </div>
@@ -91,7 +93,7 @@ const Cart = () => {
                 )}
             </div>
         </div>
-    )
-}
+  );
+};
 
 export default Cart;

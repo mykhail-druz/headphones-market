@@ -1,8 +1,6 @@
-import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import CartIcon from "~/icons/CartIcon.svg";
-import Logo from "~/icons/logo.svg";
 
 import { useStateContext } from "~/context/StateContext";
 import Cart from "../Cart/cart";
