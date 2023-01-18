@@ -1,12 +1,6 @@
 import React, { useRef } from "react";
 import Link from "next/link";
-import {
-  AiOutlineMinus,
-  AiOutlinePlus,
-  AiOutlineLeft,
-  Shopping,
-  AiOutlineShopping,
-} from "react-icons/ai";
+import { AiOutlineLeft, AiOutlineShopping } from "react-icons/ai";
 import { TiDeleteOutline } from "react-icons/ti";
 import toast from "react-hot-toast";
 
@@ -16,9 +10,15 @@ import product from "sanity_e-ushki/schemas/product";
 import ItemCount from "../ItemCount/itemCount";
 
 const Cart = () => {
-  //const cartRef = userRef();
-  const { totalPrice, totalQuantities, cartItems, setShowCart } =
-    useStateContext();
+  // const cartRef = userRef();
+  const {
+    totalPrice,
+    totalQuantities,
+    cartItems,
+    setShowCart,
+    toggleCartItemQuantity,
+    onRemove,
+  } = useStateContext();
 
   return (
     <div className="cart-wrapper tw-text-black">
