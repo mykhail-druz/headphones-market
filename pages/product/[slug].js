@@ -9,22 +9,22 @@ const ProductPage = ({ product, products }) => {
   const { decQty, incQty, qty, onAdd } = useStateContext();
 
   return (
-    <div className="tw-w-full tw-my-auto tw-mt-14">
-      <div className="tw-flex tw-flex-col tw-mx-auto tw-w-3/4 tw-justify-center tw-items-center tw-py-16">
-        <div className="tw-flex tw-flex-col lg:tw-flex-row tw-space-y-4 lg:tw-space-y-0 lg:tw-space-x-4 tw-justify-center">
+    <div className="w-full my-auto mt-14">
+      <div className="flex flex-col mx-auto w-3/4 justify-center items-center py-16">
+        <div className="flex flex-col lg:flex-row space-y-4 lg:space-y-0 lg:space-x-4 justify-center">
           <ProductImages images={image} />
-          <div className="tw-flex tw-flex-col lg:tw-w-1/2">
-            <div className="tw-space-y-2 lg:tw-mb-0 tw-mb-2">
-              <h1 className="tw-text-xl">{name}</h1>
-              <p className="tw-text-lg tw-font-bold">{price} ₴</p>
+          <div className="flex flex-col lg:w-1/2">
+            <div className="space-y-2 lg:mb-0 mb-2">
+              <h1 className="text-xl">{name}</h1>
+              <p className="text-lg font-bold">{price} ₴</p>
               {/* <LimitText text={details} limit={100} /> */}
-              <p className="tw-text-small">{details}</p>
+              <p className="text-small">{details}</p>
             </div>
-            <div className="tw-flex tw-flex-col tw-mt-auto tw-w-full tw-space-y-4">
+            <div className="flex flex-col mt-auto w-full space-y-4">
               <div>
                 <ItemCount qty={qty} incQty={incQty} decQty={decQty} />
               </div>
-              <div className="tw-flex tw-flex-col tw-space-y-2">
+              <div className="flex flex-col space-y-2">
                 <Button
                   onAdd={onAdd}
                   qty={qty}

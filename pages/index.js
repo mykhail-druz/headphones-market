@@ -4,14 +4,14 @@ import { Banner, Product } from "~/components";
 
 const HomePage = ({ product, bannerData }) => {
   return (
-    <div className="tw-pt-14">
-      <Banner heroBanner={bannerData.length && bannerData[0]} />
+    <div className="pt-14">
+      <Banner banner={bannerData} />
       <div className="products-heading">
         <h2>Лiдери продажу</h2>
         <p>Навушники на будь-який смак</p>
       </div>
-      <div className="tw-w-full tw-flex tw-flex-col">
-        <div className="tw-pb-2 tw-grid tw-grid-cols-1 sm:tw-grid-cols-2 lg:tw-grid-cols-3 xl:tw-grid-cols-5 tw-mx-auto tw-space-y-8 sm:tw-space-y-0 tw-gap-8 tw-px-8">
+      <div className="w-full flex flex-col">
+        <div className="pb-2 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 mx-auto space-y-8 sm:space-y-0 gap-8 px-8">
           {product.map((item) => (
             <Product key={item._id} product={item} />
           ))}

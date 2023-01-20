@@ -26,10 +26,10 @@ function Pagination({ totalItems, itemsPerPage, page }) {
         href={`/products/${i}`}
         key={i}
         className={classNames(
-          "tw-relative tw-inline-flex tw-items-center tw-border tw-px-4 tw-py-2 tw-text-sm tw-font-medium tw-focus:z-20",
+          "relative inline-flex items-center border px-4 py-2 text-sm font-medium focus:z-20",
           i === +page
-            ? "tw-z-10 tw-bg-red-500 tw-border-red-500 tw-duration-500 tw-text-white tw-cursor-default hover:tw-text-white"
-            : "tw-border-gray-300 hover:tw-bg-red-500 hover:tw-text-white hover:tw-border-red-500 tw-cursor-cursor tw-duration-500 tw-bg-white tw-text-gray-500"
+            ? "z-10 bg-red-500 border-red-500 duration-500 text-white cursor-default hover:text-white"
+            : "border-gray-300 hover:bg-red-500 hover:text-white hover:border-red-500 cursor-cursor duration-500 bg-white text-gray-500"
         )}
       >
         {i}
@@ -39,20 +39,20 @@ function Pagination({ totalItems, itemsPerPage, page }) {
 
   return (
     <nav
-      className="tw-isolate tw-inline-flex tw-rounded-md tw-justify-center tw-py-1 tw-space-x-1"
+      className="isolate inline-flex rounded-md justify-center py-1 space-x-1"
       aria-label="Pagination"
     >
       {+page >= 2 && (
         <Link
           href={`/products/${+page - 1}`}
           className={classNames(
-            "tw-relative tw-inline-flex tw-items-center tw-border tw-border-gray-300 tw-bg-white tw-px-2 tw-py-2 tw-text-sm tw-font-medium tw-text-gray-500 hover:tw-bg-gray-50 tw-focus:z-20",
+            "relative inline-flex items-center border border-gray-300 bg-white px-2 py-2 text-sm font-medium text-gray-500 hover:bg-gray-50 focus:z-20",
             +page === 1
-              ? "tw-cursor-default"
-              : "tw-cursor-pointer tw-border-gray-300 hover:tw-text-red-500 hover:tw-bg-red-500 hover:tw-text-white hover:tw-border-red-500 tw-cursor-cursor tw-duration-500 tw-bg-white tw-text-gray-500"
+              ? "cursor-default"
+              : "cursor-pointer border-gray-300 hover:text-red-500 hover:bg-red-500 hover:text-white hover:border-red-500 cursor-cursor duration-500 bg-white text-gray-500"
           )}
         >
-          <ChevronLeftIcon className="tw-w-5 tw-h-5" />
+          <ChevronLeftIcon className="w-5 h-5" />
         </Link>
       )}
 
@@ -61,17 +61,17 @@ function Pagination({ totalItems, itemsPerPage, page }) {
           href={`/products/1`}
           key={1}
           className={classNames(
-            "tw-relative tw-inline-flex tw-items-center tw-border tw-px-4 tw-py-2 tw-text-sm tw-font-medium tw-focus:z-20",
+            "relative inline-flex items-center border px-4 py-2 text-sm font-medium focus:z-20",
             +page === 1
-              ? "tw-z-10 tw-bg-red-500 tw-border-red-500 tw-duration-500 tw-text-white tw-cursor-default hover:tw-text-white"
-              : "tw-border-gray-300 hover:tw-bg-red-500 hover:tw-text-white hover:tw-border-red-500 tw-cursor-cursor tw-duration-500 tw-bg-white tw-text-gray-500"
+              ? "z-10 bg-red-500 border-red-500 duration-500 text-white cursor-default hover:text-white"
+              : "border-gray-300 hover:bg-red-500 hover:text-white hover:border-red-500 cursor-cursor duration-500 bg-white text-gray-500"
           )}
         >
           1
         </Link>
       )}
       {+page !== 1 && +page !== 2 && +page !== 3 && +page !== 4 && (
-        <span className="tw-relative tw-inline-flex tw-items-center tw-border tw-border-gray-300 tw-bg-white tw-px-4 tw-py-2 tw-text-sm tw-font-medium tw-text-gray-500 hover:tw-bg-gray-50 tw-focus:z-20">
+        <span className="relative inline-flex items-center border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-50 focus:z-20">
           ...
         </span>
       )}
@@ -80,7 +80,7 @@ function Pagination({ totalItems, itemsPerPage, page }) {
         +page !== totalPages - 1 &&
         +page !== totalPages - 2 &&
         +page !== totalPages - 3 && (
-          <span className="tw-relative tw-inline-flex tw-items-center tw-border tw-border-gray-300 tw-bg-white tw-px-4 tw-py-2 tw-text-sm tw-font-medium tw-text-gray-500 hover:tw-bg-gray-50 tw-focus:z-20">
+          <span className="relative inline-flex items-center border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-50 focus:z-20">
             ...
           </span>
         )}
@@ -91,10 +91,10 @@ function Pagination({ totalItems, itemsPerPage, page }) {
             href={`/products/${totalPages}`}
             key={totalPages}
             className={classNames(
-              "tw-relative tw-inline-flex tw-items-center tw-border tw-px-4 tw-py-2 tw-text-sm tw-font-medium tw-focus:z-20",
+              "relative inline-flex items-center border px-4 py-2 text-sm font-medium focus:z-20",
               +page === totalPages
-                ? "tw-z-10 tw-bg-red-500 tw-border-red-500 tw-duration-500 tw-text-white tw-cursor-default hover:tw-text-white"
-                : "tw-border-gray-300 hover:tw-bg-red-500 hover:tw-text-white hover:tw-border-red-500 tw-cursor-cursor tw-duration-500 tw-bg-white tw-text-gray-500"
+                ? "z-10 bg-red-500 border-red-500 duration-500 text-white cursor-default hover:text-white"
+                : "border-gray-300 hover:bg-red-500 hover:text-white hover:border-red-500 cursor-cursor duration-500 bg-white text-gray-500"
             )}
           >
             {totalPages}
@@ -104,11 +104,11 @@ function Pagination({ totalItems, itemsPerPage, page }) {
         <Link
           href={`/products/${+page + 1}`}
           className={classNames(
-            "tw-relative tw-inline-flex tw-items-center tw-border tw-border-gray-300 tw-bg-white tw-px-2 tw-py-2 tw-text-sm tw-font-medium tw-text-gray-500 hover:tw-bg-gray-50 tw-focus:z-20",
-            +page === totalPages ? "tw-cursor-default" : "tw-cursor-pointer"
+            "relative inline-flex items-center border border-gray-300 bg-white px-2 py-2 text-sm font-medium text-gray-500 hover:bg-gray-50 focus:z-20",
+            +page === totalPages ? "cursor-default" : "cursor-pointer"
           )}
         >
-          <ChevronRightIcon className="tw-w-5 tw-h-5" />
+          <ChevronRightIcon className="w-5 h-5" />
         </Link>
       )}
     </nav>
