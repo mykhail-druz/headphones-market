@@ -55,8 +55,8 @@ const Cart = () => {
         )}
 
         <div className="mt-4 max-h-[70vh] space-y-2">
-          {cartItems.length >= 1 &&
-            cartItems.map((item) => (
+          {cartItems.length >= 1
+            && cartItems.map((item) => (
               <div className="w-full flex space-x-2" key={item._id}>
                 <div className="border rounded-3 w-[128px] h-[128px] flex items-center justify-center">
                   <img

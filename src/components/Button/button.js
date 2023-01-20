@@ -17,7 +17,7 @@ const Button = ({
           outline
             ? "border-secondary text-secondary hover:bg-secondary hover:text-white border-2"
             : "bg-secondary border-secondary hover:border-secondary text-white hover:text-secondary hover:bg-inherit",
-          className
+          className,
         )}
       >
         {children}

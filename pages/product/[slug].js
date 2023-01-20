@@ -1,12 +1,18 @@
 import React from "react";
 import { client } from "~/lib/client";
-import { Button, ItemCount, ProductImages, LimitText } from "~/components";
+import {
+  Button, ItemCount, ProductImages, LimitText,
+} from "~/components";
 import { useStateContext } from "~/context/StateContext";
 
 const ProductPage = ({ product }) => {
-  const { name, details, price, image } = product;
+  const {
+    name, details, price, image,
+  } = product;
 
-  const { decQty, incQty, qty, onAdd } = useStateContext();
+  const {
+    decQty, incQty, qty, onAdd,
+  } = useStateContext();
 
   return (
     <div className="w-full my-auto mt-14">
