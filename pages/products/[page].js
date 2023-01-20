@@ -1,7 +1,7 @@
 import React from "react";
+import { useRouter } from "next/router";
 import { client } from "~/lib/client";
 import { Product, Pagination } from "~/components";
-import { useRouter } from "next/router";
 
 export default function Products({ products, page = 1, count }) {
   const router = useRouter();
@@ -32,7 +32,7 @@ export default function Products({ products, page = 1, count }) {
 }
 
 export async function getStaticProps({ params }) {
-  let page = params.page || 1;
+  const page = params.page || 1;
   const limit = 10;
   const offset = (page - 1) * limit;
   const products = await client.fetch(

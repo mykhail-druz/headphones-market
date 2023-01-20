@@ -3,6 +3,7 @@ import Link from "next/link";
 import { AiOutlineLeft, AiOutlineShopping } from "react-icons/ai";
 import { TiDeleteOutline } from "react-icons/ti";
 
+import product from "sanity_e-ushki/schemas/product";
 import { useStateContext } from "~/context/StateContext";
 import { urlFor } from "~/lib/client";
 
