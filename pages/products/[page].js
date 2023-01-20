@@ -14,8 +14,8 @@ export default function Products({ products, page = 1, count }) {
 
   return (
     <div className="">
-      <div className="tw-w-full tw-flex tw-flex-col tw-justify-center tw-pt-8">
-        <div className="tw-pb-2 tw-grid tw-grid-cols-1 tw-min-h-[500px] sm:tw-grid-cols-2 lg:tw-grid-cols-3 xl:tw-grid-cols-5 tw-mx-auto tw-space-y-8 sm:tw-space-y-0 tw-gap-8 tw-px-8">
+      <div className="w-full flex flex-col justify-center pt-8">
+        <div className="pb-2 grid grid-cols-1 min-h-[500px] sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 mx-auto space-y-8 sm:space-y-0 gap-8 px-8">
           {products.map((item) => (
             <Product key={item._id} product={item} />
           ))}

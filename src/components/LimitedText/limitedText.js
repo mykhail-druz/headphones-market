@@ -17,14 +17,14 @@ function LimitText({ text, limit }) {
       <span>{showFullText ? limitText : limitText.slice(0, limit)}</span>
       {showFullText ? (
         <p
-          className="tw-text-red-600 hover:tw-text-red-300 tw-duration-500 tw-cursor-pointer"
+          className="text-red-600 hover:text-red-300 duration-500 cursor-pointer"
           onClick={handleHide}
         >
           Сховати
         </p>
       ) : (
         <p
-          className="tw-text-red-600 hover:tw-text-red-300 tw-duration-500 tw-cursor-pointer"
+          className="text-red-600 hover:text-red-300 duration-500 cursor-pointer"
           onClick={handleShowMore}
         >
           Показати більше

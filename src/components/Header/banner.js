@@ -29,7 +29,7 @@ function Banner() {
   }, []);
 
   return (
-    <div className="tw-h-[50vh] tw-w-full tw-border">
+    <div className="h-[50vh] w-full border">
       <h1>{banners[currentBannerIndex].title}</h1>
     </div>
   );

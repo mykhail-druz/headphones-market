@@ -6,35 +6,35 @@ import Tg from "~/icons/Tg.svg";
 import Link from "next/link";
 
 const Footer = () => (
-  <section className="tw-text-white bg-dark tw-flex tw-w-full tw-justify-center tw-mt-auto">
-    <div className="tw-flex tw-h-[150px] tw-space-x-4 tw-items-center">
+  <section className="text-white bg-black flex w-full justify-center mt-auto">
+    <div className="flex h-[150px] space-x-4 items-center">
       <Link
         href="https://www.facebook.com/profile.php?id=100007224617013"
         target="_blank"
-        className=" tw-bg-white tw-border-0 tw-rounded-full tw-duration-500 tw-text-black hover:tw-bg-black hover:tw-text-white tw-cursor-pointer"
+        className=" bg-white border-0 rounded-full duration-500 text-black hover:bg-black hover:text-white cursor-pointer"
       >
-        <Fb className="tw-p-1 tw-w-9 tw-h-9" />
+        <Fb className="p-1 w-9 h-9" />
       </Link>
       <Link
         href="https://github.com/mykhail-druz/headphones-market"
         target="_blank"
-        className="tw-w-9 tw-h-9 tw-p-1 tw-bg-white tw-border-0 tw-rounded-full tw-duration-500 tw-text-black hover:tw-bg-black hover:tw-text-white tw-cursor-pointer"
+        className="w-9 h-9 p-1 bg-white border-0 rounded-full duration-500 text-black hover:bg-black hover:text-white cursor-pointer"
       >
-        <Gh className="tw-w-7 tw-h-7 tw-scale-[1.4]" />
+        <Gh className="w-7 h-7 scale-[1.4]" />
       </Link>
       <Link
         href="https://t.me/mykhail_druz"
         target="_blank"
-        className="tw-bg-white tw-border-0 tw-rounded-full tw-duration-500 tw-text-black hover:tw-bg-black hover:tw-text-white tw-cursor-pointer"
+        className="bg-white border-0 rounded-full duration-500 text-black hover:bg-black hover:text-white cursor-pointer"
       >
-        <Tg className="tw-w-9 tw-h-9 tw-p-1 " />
+        <Tg className="w-9 h-9 p-1 " />
       </Link>
       <Link
         href="https://www.instagram.com/mykhail.druz/"
         target="_blank"
-        className="tw-bg-white tw-border-0 tw-rounded-full tw-duration-500 tw-text-black hover:tw-bg-black hover:tw-text-white tw-cursor-pointer"
+        className="bg-white border-0 rounded-full duration-500 text-black hover:bg-black hover:text-white cursor-pointer"
       >
-        <Ig className="tw-w-9 tw-h-9 tw-p-1" />
+        <Ig className="w-9 h-9 p-1" />
       </Link>
     </div>
   </section>

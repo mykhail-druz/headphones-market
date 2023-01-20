@@ -6,20 +6,20 @@ function Productimagess({ images }) {
   const [currentImage, setCurrentImage] = useState(0);
 
   return (
-    <div className="tw-flex tw-flex-col md:tw-flex-row lg:tw-flex-col tw-space-x-0 tw-space-y-1 md:tw-space-x-1 md:tw-space-y-0 lg:tw-space-x-0 lg:tw-space-y-1 lg:tw-justify-start">
+    <div className="flex flex-col md:flex-row lg:flex-col space-x-0 space-y-1 md:space-x-1 md:space-y-0 lg:space-x-0 lg:space-y-1 lg:justify-start">
       {images && (
         <img
-          className="sm:tw-max-w-[300px] sm:tw-max-h-[300px]
-           sm:tw-min-w-[250px] sm:tw-min-h-[250px]
-            lg:tw-max-w-[400px] lg:tw-max-h-[400px] lg:tw-min-w-[400px] lg:tw-min-h-[400px]
-             tw-w-8/10 tw-border tw-p-6 tw-object-scale-down tw-bg-white"
+          className="sm:max-w-[300px] sm:max-h-[300px]
+           sm:min-w-[250px] sm:min-h-[250px]
+            lg:max-w-[400px] lg:max-h-[400px] lg:min-w-[400px] lg:min-h-[400px]
+             w-8/10 border p-6 object-scale-down bg-white border-secondary"
           src={urlFor(images && images[currentImage])}
         />
       )}
       <div
         className={classNames(
-          "tw-flex lg:tw-flex-row md:tw-flex-col tw-space-x-1 md:tw-space-x-0 md:tw-space-y-1 lg:tw-space-y-0 lg:tw-space-x-1 ",
-          images[1] && images[2] && images[3] ? "tw-justify-between" : ""
+          "flex lg:flex-row md:flex-col space-x-1 md:space-x-0 md:space-y-1 lg:space-y-0 lg:space-x-1 ",
+          images[2] ? "justify-between" : ""
         )}
       >
         {images[0] && (
@@ -27,10 +27,10 @@ function Productimagess({ images }) {
             <img
               src={urlFor(images && images[0])}
               className={classNames(
-                "tw-border  tw-cursor-pointer tw-rounded-2 tw-object-scale-down tw-w-24 tw-h-24 lg:tw-w-32 lg:tw-h-32",
+                "border cursor-pointer rounded-2 p-2 object-scale-down w-24 h-24 lg:w-32 lg:h-32 bg-white",
                 currentImage === 0
-                  ? "tw-border-red-500"
-                  : "tw-border-neutral-300"
+                  ? "border-secondary"
+                  : "border-primary cursor-pointer"
               )}
             />
           </div>
@@ -40,10 +40,10 @@ function Productimagess({ images }) {
             <img
               src={urlFor(images && images[1])}
               className={classNames(
-                "tw-border tw-rounded-2 tw-object-scale-down tw-w-24 tw-h-24 lg:tw-w-32 lg:tw-h-32 ",
+                "border rounded-2 object-scale-down p-2 w-24 h-24 lg:w-32 lg:h-32 bg-white",
                 currentImage === 1
-                  ? "tw-border-red-500"
-                  : "tw-border-neutral-300 tw-cursor-pointer"
+                  ? "border-secondary"
+                  : "border-primary cursor-pointer"
               )}
             />
           </div>
@@ -53,10 +53,10 @@ function Productimagess({ images }) {
             <img
               src={urlFor(images && images[2])}
               className={classNames(
-                "tw-cursor-pointer tw-border tw-rounded-2 tw-object-scale-down tw-w-24 tw-h-24 lg:tw-w-32 lg:tw-h-32",
+                "cursor-pointer border rounded-2 p-2 object-scale-down w-24 h-24 lg:w-32 lg:h-32 bg-white",
                 currentImage === 2
-                  ? "tw-border-red-500"
-                  : "tw-border-neutral-300 tw-cursor-pointer"
+                  ? "border-secondary"
+                  : "border-primary cursor-pointer"
               )}
             />
           </div>
