@@ -8,8 +8,13 @@ module.exports = {
     "./src/components/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        primary: "#14213D",
+        secondary: "#FCA311",
+        "gray-light": "#E5E5E5",
+      },
+    },
   },
-  prefix: "tw-",
   plugins: [],
 };

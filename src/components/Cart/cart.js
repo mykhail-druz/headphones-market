@@ -2,12 +2,11 @@ import React, { useRef } from "react";
 import Link from "next/link";
 import { AiOutlineLeft, AiOutlineShopping } from "react-icons/ai";
 import { TiDeleteOutline } from "react-icons/ti";
-import toast from "react-hot-toast";
 
 import { useStateContext } from "~/context/StateContext";
 import { urlFor } from "~/lib/client";
-import product from "sanity_e-ushki/schemas/product";
-import ItemCount from "../ItemCount/itemCount";
+
+import { Button, ItemCount } from "~/components";
 
 const Cart = () => {
   // const cartRef = userRef();
@@ -21,81 +20,68 @@ const Cart = () => {
   } = useStateContext();
 
   return (
-    <div className="cart-wrapper tw-text-black">
-      <div className="cart-container">
-        <button
-          type="button"
-          className="cart-heading"
-          onClick={() => setShowCart(false)}
-        >
-          <AiOutlineLeft className="tw-text-black" />
-          <span className="heading">Ваш кошик</span>
-          <span className="cart-num-items">({totalQuantities} товарів)</span>
-        </button>
-
+    <div className="w-[100vw] bg-black bg-opacity-50 fixed z-[100] duration-500 right-0 top-0 text-black">
+      <div className="h-screen w-2/4 bg-white  float-right px-8 py-4 relative duration-300">
+        <div className="flex items-center">
+          <button
+            type="button"
+            className="flex items-center space-x-2 text-lg font-medium"
+            onClick={() => setShowCart(false)}
+          >
+            <AiOutlineLeft className="text-black" />
+            <span className="ml-[10px] text-black">Ваш кошик</span>
+          </button>
+          <span className="ml-[10px] text-secondary">
+            ({totalQuantities} товарів)
+          </span>
+        </div>
         {cartItems.length < 1 && (
-          <div className="empty-cart">
-            <div className="tw-items-center">
-              <AiOutlineShopping className="tw-mx-auto" size={150} />
+          <div className="text-center space-y-2">
+            <div className="items-center">
+              <AiOutlineShopping className="mx-auto" size={150} />
             </div>
-            <h3>Наразі Ваш кошик ще пустий :(</h3>
-            <Link href="/">
-              <button
-                type="button"
-                className="btn"
-                onClick={() => setShowCart(false)}
-              >
-                Продовжити покупки
-              </button>
-            </Link>
+            <div className="space-y-2 flex flex-col">
+              <h3 className="text-xl font-semibold">
+                Наразі Ваш кошик ще пустий :(
+              </h3>
+              <Link href="/">
+                <Button className="" onClick={() => setShowCart(false)}>
+                  Продовжити покупки
+                </Button>
+              </Link>
+            </div>
           </div>
         )}
 
-        <div className="product-container">
+        <div className="mt-4 max-h-[70vh] space-y-2">
           {cartItems.length >= 1 &&
             cartItems.map((item) => (
-              <div className="product" key={item._id}>
-                <img
-                  src={urlFor(item?.image[0])}
-                  className="tw-border tw-cursor-pointer rounded-3 tw-object-scale-down tw-w-24 tw-h-24 lg:tw-w-32 lg:tw-h-32 tw-p-2"
-                />
-                <div className="item-desc">
-                  <div className="flex top">
+              <div className="w-full flex space-x-2" key={item._id}>
+                <div className="border rounded-3 w-[128px] h-[128px] flex items-center justify-center">
+                  <img
+                    src={urlFor(item?.image[0])}
+                    className="object-scale-down w-[128px] p-2"
+                  />
+                </div>
+                <div className="space-y-2 flex flex-col w-full">
+                  <div className="flex items-center">
                     <h5>{item.name}</h5>
-                    <h4>{item.price}₴</h4>
+                    <h4 className="ml-auto">{item.price}₴</h4>
                   </div>
-                  <div className="flex bottom">
-                    <div className="tw-flex tw-flex-col tw-mt-auto tw-w-full tw-space-y-8">
-                      <div className="tw-border tw-flex tw-justify-between tw-px-2 tw-items-center tw-w-1/3">
-                        <button
-                          className="tw-text-2xl"
-                          onClick={() =>
-                            toggleCartItemQuantity(item._id, "dec")
-                          }
-                        >
-                          -
-                        </button>
-                        <p className="tw-text-xl tw-border-separate">
-                          {item.quantity}
-                        </p>
-                        <button
-                          className="tw-text-2xl"
-                          onClick={() =>
-                            toggleCartItemQuantity(item._id, "inc")
-                          }
-                        >
-                          +
-                        </button>
-                      </div>
+                  <div className="flex">
+                    <div className="flex flex-col mt-auto space-y-8">
+                      <ItemCount
+                        className={"w-[120px]"}
+                        qty={item.quantity}
+                        incQty={() => toggleCartItemQuantity(item._id, "inc")}
+                        decQty={() => toggleCartItemQuantity(item._id, "dec")}
+                      />
                     </div>
-                    <div>
-                      <button
-                        type="button"
-                        className="remove-item"
+                    <div className="mt-auto ml-auto">
+                      <TiDeleteOutline
                         onClick={() => onRemove(item)}
-                      >
-                        <TiDeleteOutline />
-                      </button>
+                        className="remove-item"
+                      />
                     </div>
                   </div>
                 </div>
@@ -106,12 +92,12 @@ const Cart = () => {
           <div className="cart-bottom">
             <div className="total">
               <h3>Разом:</h3>
-              <h3 className="tw-font-bold ">{totalPrice}₴</h3>
+              <h3 className="font-bold ">{totalPrice}₴</h3>
             </div>
             <div className="btn-container">
-              <button type="button" className="btn" onClick="">
+              <Button type="button" className="" onClick="">
                 Оформити замовлення
-              </button>
+              </Button>
             </div>
           </div>
         )}

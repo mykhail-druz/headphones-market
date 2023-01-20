@@ -9,19 +9,21 @@ const Navbar = () => {
   const { showCart, setShowCart, totalQuantities } = useStateContext();
 
   return (
-    <nav className="tw-text-white bg-dark d-flex tw-justify-between tw-px-3 tw-py-3 tw-items-center tw-w-full tw-fixed tw-z-10">
+    <nav className="text-white bg-black flex justify-between px-3 py-3 items-center w-full fixed z-10">
       <Link
         href={"/"}
-        className="tw-flex tw-items-center tw-text-white hover:tw-text-blue-500 tw-duration-500"
+        className="flex items-center text-white hover:text-secondary duration-500"
       >
-        <h1 className="tw-text-2xl">e-USHKI</h1>
+        <h1 className="text-2xl">e-USHKI</h1>
       </Link>
       <button
-        className="tw-h-7 tw-w-7 tw-text-white hover:tw-text-blue-500 tw-duration-500 tw-cursor-pointer"
+        className="h-7 w-7 text-white hover:text-secondary duration-500 cursor-pointer"
         onClick={() => setShowCart(true)}
       >
         <CartIcon />
-        <span className="cart-item-qty">{totalQuantities}</span>
+        <span className="absolute right-0 bg-secondary rounded-full w-5 h-5 text-center text-sm hover:text-white text-white">
+          {totalQuantities}
+        </span>
       </button>
 
       {showCart && <Cart />}
