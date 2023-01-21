@@ -1,12 +1,15 @@
 import React from "react";
 import classNames from "classnames";
-const ItemCount = ({ qty, incQty, decQty, className }) => {
+
+const ItemCount = ({
+  qty, incQty, decQty, className,
+}) => {
   return (
     <>
       <div
         className={classNames(
-          "border flex justify-between p-2 items-center w-1/3 border-primary text-primary",
-          className
+          "border flex justify-between px-2 my-4 items-center lg:w-1/5 md:w-1/3 w-1/2 border-primary text-primary",
+          className,
         )}
       >
         <button className="text-4xl" onClick={decQty}>

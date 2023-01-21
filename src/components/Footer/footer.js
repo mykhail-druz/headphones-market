@@ -1,13 +1,14 @@
 import React from "react";
+import Link from "next/link";
+
 import Fb from "~/icons/Fb.svg";
 import Gh from "~/icons/Gh.svg";
 import Ig from "~/icons/Ig.svg";
 import Tg from "~/icons/Tg.svg";
-import Link from "next/link";
 
 const Footer = () => (
   <section className="text-white bg-black flex w-full justify-center mt-auto">
-    <div className="flex h-[150px] space-x-4 items-center">
+    <div className="flex h-[100px] space-x-4 items-center">
       <Link
         href="https://www.facebook.com/profile.php?id=100007224617013"
         target="_blank"

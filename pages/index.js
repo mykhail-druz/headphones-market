@@ -5,7 +5,7 @@ import { Banner, Product } from "~/components";
 const HomePage = ({ product, bannerData }) => {
   return (
     <div className="pt-14">
-      <Banner heroBanner={bannerData.length && bannerData[0]} />
+      <Banner banner={bannerData} />
       <div className="text-center text-primary px-4">
         <h2 className="text-4xl font-bold">Лiдери продажу</h2>
         <p className="text-md">Навушники на будь-який смак</p>

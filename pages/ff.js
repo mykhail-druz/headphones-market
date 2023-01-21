@@ -13,13 +13,13 @@ const Product = ({ product }) => {
 };
 
 export async function getStaticProps({ params }) {
-  const page = params.page;
+  const { page } = params;
   const limit = 8;
   const offset = (page - 1) * limit;
   const products = await client.fetch(
     `*[_type == "product"] | order(_createdAt desc) [${offset}...${
       offset + limit
-    }]`
+    }]`,
   );
   return {
     props: { products },
