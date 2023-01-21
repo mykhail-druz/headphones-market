@@ -21,7 +21,7 @@ const ProductPage = ({ product }) => {
           <ProductImages images={image} />
           <div className="flex flex-col lg:w-1/2">
             <div className="space-y-2 lg:mb-0 mb-2">
-              <h1 className="text-xl">{name}</h1>
+              <h1 className="text-xl font-bold">{name}</h1>
               <p className="text-lg font-bold">{price} ₴</p>
               {/* <LimitText text={details} limit={100} /> */}
               <p className="text-small">{details}</p>

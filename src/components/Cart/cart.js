@@ -10,7 +10,7 @@ import { urlFor } from "~/lib/client";
 import { Button, ItemCount } from "~/components";
 
 const Cart = () => {
-  // const cartRef = userRef();
+  const cartRef = useRef();
   const {
     totalPrice,
     totalQuantities,
@@ -21,8 +21,8 @@ const Cart = () => {
   } = useStateContext();
 
   return (
-    <div className="w-[100vw] bg-black bg-opacity-50 fixed z-[100] duration-500 right-0 top-0 text-black">
-      <div className="h-screen w-2/4 bg-white  float-right px-8 py-4 relative duration-300">
+    <div ref={cartRef} className="w-[100vw] bg-black bg-opacity-50 fixed z-[100] duration-500 right-0 top-0 text-black">
+      <div className="h-screen lg:w-1/3 md:w-1/2 w-full bg-white  float-right px-4 py-4 relative duration-300">
         <div className="flex items-center">
           <button
             type="button"
@@ -58,26 +58,23 @@ const Cart = () => {
           {cartItems.length >= 1
             && cartItems.map((item) => (
               <div className="w-full flex space-x-2" key={item._id}>
-                <div className="border rounded-3 w-[128px] h-[128px] flex items-center justify-center">
+                <div className="border rounded w-[200px] h-[140px] flex items-center justify-center mr-3 ">
                   <img
                     src={urlFor(item?.image[0])}
-                    className="object-scale-down w-[128px] p-2"
-                  />
+                    className="object-scale-down w-[128px] h-[128px] p-1"/>
                 </div>
                 <div className="space-y-2 flex flex-col w-full">
                   <div className="flex items-center">
                     <h5>{item.name}</h5>
-                    <h4 className="ml-auto">{item.price}₴</h4>
+                    <h4 className="ml-auto font-bold">{item.price}₴</h4>
                   </div>
                   <div className="flex">
-                    <div className="flex flex-col mt-auto space-y-8">
                       <ItemCount
-                        className={"w-[120px]"}
+                        className=""
                         qty={item.quantity}
                         incQty={() => toggleCartItemQuantity(item._id, "inc")}
                         decQty={() => toggleCartItemQuantity(item._id, "dec")}
                       />
-                    </div>
                     <div className="mt-auto ml-auto">
                       <TiDeleteOutline
                         onClick={() => onRemove(item)}
@@ -90,8 +87,8 @@ const Cart = () => {
             ))}
         </div>
         {cartItems.length >= 1 && (
-          <div className="cart-bottom">
-            <div className="total">
+          <div className="cart-bottom sm:mb-8">
+            <div className="total pb-4">
               <h3>Разом:</h3>
               <h3 className="font-bold ">{totalPrice}₴</h3>
             </div>

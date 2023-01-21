@@ -8,7 +8,7 @@ const ItemCount = ({
     <>
       <div
         className={classNames(
-          "border flex justify-between p-2 items-center w-1/3 border-primary text-primary",
+          "border flex justify-between px-2 my-4 items-center lg:w-1/5 md:w-1/3 w-1/2 border-primary text-primary",
           className,
         )}
       >
