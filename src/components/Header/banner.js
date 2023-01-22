@@ -1,6 +1,4 @@
-import classNames from "classnames";
 import React, { useState, useEffect } from "react";
-import { CSSTransition } from "react-transition-group";
 import { urlFor } from "~/lib/client";
 import Button from "../Button/button";
 
@@ -16,6 +14,7 @@ function Banner({ banner }) {
 
     return () => clearInterval(intervalId);
   }, []);
+  /* eslint-disable*/
   return (
     <div className="flex flex-col">
       <div className="lg:h-[60vh] h-[75vh] md:h-[40vh] mx-auto w-[90%] border rounded-xl border-primary bg-primary mt-6 text-white">
@@ -38,18 +37,16 @@ function Banner({ banner }) {
 
           <div className="text-center flex flex-col space-y-1">
             <div className="max-w-[275px] max-h-[275px]">
-              <CSSTransition in={true} timeout={300} classNames="fade">
-                {banner[currentBannerIndex].image && (
-                  <img
-                    src={urlFor(
+              {banner[currentBannerIndex].image && (
+                <img
+                  src={urlFor(
+                    banner[currentBannerIndex].image &&
                       banner[currentBannerIndex].image
-                        && banner[currentBannerIndex].image,
-                    ).url()}
-                    className="object-scale-down"
-                    alt="banner-image"
-                  />
-                )}
-              </CSSTransition>
+                  ).url()}
+                  className="object-scale-down"
+                  alt="banner-image"
+                />
+              )}
             </div>
             <h2 className="text-2xl ">{banner[currentBannerIndex].product}</h2>
           </div>

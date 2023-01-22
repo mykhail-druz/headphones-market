@@ -5,13 +5,18 @@ import { client } from "~/lib/client";
 import { Button, ItemCount, ProductImages } from "~/components";
 import { useStateContext } from "~/context/StateContext";
 import getStripe from "~/lib/getStripe";
-
+/* eslint-disable*/
 const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
 );
+/* eslint-enable */
 const ProductPage = ({ product }) => {
-  const { name, details, price, image } = product;
-  const { decQty, incQty, qty, onAdd, cartItems } = useStateContext();
+  const {
+    name, details, price, image,
+  } = product;
+  const {
+    decQty, incQty, qty, onAdd,
+  } = useStateContext();
   const handleCheckout = async () => {
     const stripe = await getStripe();
 
@@ -32,10 +37,12 @@ const ProductPage = ({ product }) => {
       sessionId: data.id,
     });
   };
+
   const buyNow = () => {
     onAdd(product, qty);
     return handleCheckout();
   };
+
   return (
     <div className="w-full my-auto mt-14">
       <div className="flex flex-col mx-auto w-3/4 justify-center items-center py-16">

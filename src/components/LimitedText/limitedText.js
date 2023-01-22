@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 function LimitText({ text, limit }) {
   const [showFullText, setShowFullText] = useState(false);
+  /* eslint-disable*/
   const [limitText, setlimitText] = useState(text);
 
   const handleShowMore = () => {
