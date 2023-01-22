@@ -14,7 +14,7 @@ const Product = ({
           {image && (
             <img
               src={urlFor(image && image[0])}
-              className="w-[300px] h-[300px] border p-6 object-scale-down "
+              className="w-[300px] h-[300px] p-6 object-scale-down "
               alt={name}
             />
           )}

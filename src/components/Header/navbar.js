@@ -1,5 +1,8 @@
 import Link from "next/link";
 import React from "react";
+import { FiPhoneCall } from "react-icons/fi";
+import Tooltip from '@mui/material/Tooltip';
+import IconButton from '@mui/material/IconButton';
 import CartIcon from "~/icons/CartIcon.svg";
 
 import { useStateContext } from "~/context/StateContext";
@@ -16,15 +19,26 @@ const Navbar = () => {
       >
         <h1 className="text-2xl">e-USHKI</h1>
       </Link>
+      <div className="flex object-center">
+        <div>
+        <Tooltip disableFocusListener disableTouchListener className="mr-4 text-center sm:z-10" title="+380950213825">
+          <IconButton>
+            <FiPhoneCall className="h-7 w-7 text-white hover:text-secondary duration-500"/>
+          </IconButton>
+        </Tooltip>
+      </div>
+      <div>
       <button
-        className="h-7 w-7 text-white hover:text-secondary duration-500 cursor-pointer"
+        className="text-center mt-1.5 h-7 w-7 text-white hover:text-secondary duration-500 cursor-pointer"
         onClick={() => setShowCart(true)}
       >
         <CartIcon />
-        <span className="absolute right-3 -bottom-1 bg-secondary rounded-full w-5 h-5 text-center text-sm hover:text-white text-white">
+        <span className="absolute right-3 bottom-1 bg-secondary rounded-full w-5 h-5 text-center text-sm hover:text-white text-white">
           {totalQuantities}
         </span>
       </button>
+      </div>
+      </div>
 
       {showCart && <Cart />}
     </nav>

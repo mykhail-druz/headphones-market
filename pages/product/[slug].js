@@ -64,10 +64,10 @@ const ProductPage = ({ product }) => {
                   product={product}
                   outline={true}
                 >
-                  Add to Cart
+                  Додати до кошику
                 </Button>
                 <Button onClick={buyNow} outline={false}>
-                  Buy now
+                  Купити зараз
                 </Button>
               </div>
             </div>
