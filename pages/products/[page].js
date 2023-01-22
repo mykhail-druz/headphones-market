@@ -13,9 +13,13 @@ export default function Products({ products, page = 1, count }) {
   };
 
   return (
-    <div className="">
-      <div className="w-full flex flex-col justify-center pt-8">
-        <div className="pb-2 grid grid-cols-1 min-h-[500px] sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 mx-auto space-y-8 sm:space-y-0 gap-8 px-8">
+    <div className="mt-[40px] mb-4">
+      <div className="w-full flex flex-col justify-center pt-8 space-y-4">
+        <div className="text-primary text-center flex flex-col space-y-1">
+          <h1 className="text-2xl font-bold">Весь Каталог Навушників</h1>
+          <p className="text-xl">Баранки на любий смак</p>
+        </div>
+        <div className="grid grid-cols-1 min-h-[200px] sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 mx-auto space-y-8 sm:space-y-0 gap-8 px-8">
           {products.map((item) => (
             <Product key={item._id} product={item} />
           ))}
@@ -38,7 +42,7 @@ export async function getStaticProps({ params }) {
   const products = await client.fetch(
     `*[_type == "product"] | order(_createdAt desc) [${offset}...${
       offset + limit
-    }]`,
+    }]`
   );
   const count = await client.fetch(`count(*[_type == "product"])`);
   return {

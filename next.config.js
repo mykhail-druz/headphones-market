@@ -20,6 +20,25 @@ const nextConfig = {
 
     return config;
   },
+  async redirects() {
+    return [
+      {
+        source: "/canceled",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/product",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/products",
+        destination: "/products/1",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig;

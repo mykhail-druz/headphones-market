@@ -10,7 +10,7 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <title>Интернет-магазин e-ushki: наушники и игровые гарнитуры</title>
+        <title>Інтернет магазин e-ushki: навушник та ігрові гарнітури</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <StateContext>

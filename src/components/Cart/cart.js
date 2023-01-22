@@ -1,13 +1,17 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import Link from "next/link";
 import { AiOutlineLeft, AiOutlineShopping } from "react-icons/ai";
 import { TiDeleteOutline } from "react-icons/ti";
-
-import product from "sanity_e-ushki/schemas/product";
 import { useStateContext } from "~/context/StateContext";
 import { urlFor } from "~/lib/client";
-
 import { Button, ItemCount } from "~/components";
+import { loadStripe } from "@stripe/stripe-js";
+import getStripe from "~/lib/getStripe";
+import { toast } from "react-hot-toast";
+
+const stripePromise = loadStripe(
+  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
+);
 
 const Cart = () => {
   const cartRef = useRef();
@@ -19,9 +23,32 @@ const Cart = () => {
     toggleCartItemQuantity,
     onRemove,
   } = useStateContext();
+  const handleCheckout = async () => {
+    const stripe = await getStripe();
+
+    const response = await fetch("/api/stripe", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(cartItems),
+    });
+    console.log(cartItems);
+    if (response.statusCode === 500) return;
+
+    const data = await response.json();
+
+    toast.loading("Переходжу на другу сторінку...");
+    stripe.redirectToCheckout({
+      sessionId: data.id,
+    });
+  };
 
   return (
-    <div ref={cartRef} className="w-[100vw] bg-black bg-opacity-50 fixed z-[100] duration-500 right-0 top-0 text-black">
+    <div
+      ref={cartRef}
+      className="w-[100vw] bg-black bg-opacity-50 fixed z-[100] duration-500 right-0 top-0 text-black"
+    >
       <div className="h-screen lg:w-1/3 md:w-1/2 w-full bg-white  float-right px-4 py-4 relative duration-300">
         <div className="flex items-center">
           <button
@@ -55,13 +82,14 @@ const Cart = () => {
         )}
 
         <div className="mt-4 max-h-[70vh] space-y-2">
-          {cartItems.length >= 1
-            && cartItems.map((item) => (
+          {cartItems.length >= 1 &&
+            cartItems.map((item) => (
               <div className="w-full flex space-x-2" key={item._id}>
                 <div className="border rounded w-[200px] h-[140px] flex items-center justify-center mr-3 ">
                   <img
                     src={urlFor(item?.image[0])}
-                    className="object-scale-down w-[128px] h-[128px] p-1"/>
+                    className="object-scale-down w-[128px] h-[128px] p-1"
+                  />
                 </div>
                 <div className="space-y-2 flex flex-col w-full">
                   <div className="flex items-center">
@@ -69,12 +97,12 @@ const Cart = () => {
                     <h4 className="ml-auto font-bold">{item.price}₴</h4>
                   </div>
                   <div className="flex">
-                      <ItemCount
-                        className=""
-                        qty={item.quantity}
-                        incQty={() => toggleCartItemQuantity(item._id, "inc")}
-                        decQty={() => toggleCartItemQuantity(item._id, "dec")}
-                      />
+                    <ItemCount
+                      className=""
+                      qty={item.quantity}
+                      incQty={() => toggleCartItemQuantity(item._id, "inc")}
+                      decQty={() => toggleCartItemQuantity(item._id, "dec")}
+                    />
                     <div className="mt-auto ml-auto">
                       <TiDeleteOutline
                         onClick={() => onRemove(item)}
@@ -92,11 +120,9 @@ const Cart = () => {
               <h3>Разом:</h3>
               <h3 className="font-bold ">{totalPrice}₴</h3>
             </div>
-            <div className="btn-container">
-              <Button type="button" className="" onClick="">
-                Оформити замовлення
-              </Button>
-            </div>
+            <Button onClick={handleCheckout} className="">
+              Оформити замовлення
+            </Button>
           </div>
         )}
       </div>
