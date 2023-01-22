@@ -20,5 +20,5 @@
 
 #Project Makers
 
--['https://t.me/mykhail_druz']Mykhail Druz
--['https://t.me/dovek2019']Danylo Kachanko
+-Mykhail_Druz['https://t.me/mykhail_druz']
+-Danylo_Kachanko['https://t.me/dovek2019']
