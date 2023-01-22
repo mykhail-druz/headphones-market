@@ -18,7 +18,7 @@ function Productimagess({ images }) {
       <div
         className={classNames(
           "flex lg:flex-row md:flex-col space-x-1 md:space-x-0 md:space-y-1 lg:space-y-0 lg:space-x-1 ",
-          images[2] ? "md:justify-between" : ""
+          images[2] ? "md:justify-between" : "",
         )}
       >
         {images[0] && (
@@ -29,7 +29,7 @@ function Productimagess({ images }) {
                 "border cursor-pointer rounded-2 p-2 object-scale-down w-24 h-24 lg:w-32 lg:h-32 bg-white",
                 currentImage === 0
                   ? "border-secondary"
-                  : "border-primary cursor-pointer"
+                  : "border-primary cursor-pointer",
               )}
             />
           </div>
@@ -42,7 +42,7 @@ function Productimagess({ images }) {
                 "border rounded-2 object-scale-down p-2 w-24 h-24 lg:w-32 lg:h-32 bg-white",
                 currentImage === 1
                   ? "border-secondary"
-                  : "border-primary cursor-pointer"
+                  : "border-primary cursor-pointer",
               )}
             />
           </div>
@@ -55,7 +55,7 @@ function Productimagess({ images }) {
                 "cursor-pointer border rounded-2 p-2 object-scale-down w-24 h-24 lg:w-32 lg:h-32 bg-white",
                 currentImage === 2
                   ? "border-secondary"
-                  : "border-primary cursor-pointer"
+                  : "border-primary cursor-pointer",
               )}
             />
           </div>

@@ -19,7 +19,7 @@ export default async function handler(req, res) {
           const newImage = img
             .replace(
               "image-",
-              "https://cdn.sanity.io/images/f0p88h7i/production/"
+              "https://cdn.sanity.io/images/f0p88h7i/production/",
             )
             .replace("-webp", ".webp");
 

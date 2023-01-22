@@ -2,15 +2,15 @@ import React, { useRef, useEffect } from "react";
 import Link from "next/link";
 import { AiOutlineLeft, AiOutlineShopping } from "react-icons/ai";
 import { TiDeleteOutline } from "react-icons/ti";
+import { loadStripe } from "@stripe/stripe-js";
+import { toast } from "react-hot-toast";
 import { useStateContext } from "~/context/StateContext";
 import { urlFor } from "~/lib/client";
 import { Button, ItemCount } from "~/components";
-import { loadStripe } from "@stripe/stripe-js";
 import getStripe from "~/lib/getStripe";
-import { toast } from "react-hot-toast";
 
 const stripePromise = loadStripe(
-  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
+  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY,
 );
 
 const Cart = () => {
@@ -82,8 +82,8 @@ const Cart = () => {
         )}
 
         <div className="mt-4 max-h-[70vh] space-y-2">
-          {cartItems.length >= 1 &&
-            cartItems.map((item) => (
+          {cartItems.length >= 1
+            && cartItems.map((item) => (
               <div className="w-full flex space-x-2" key={item._id}>
                 <div className="border rounded w-[200px] h-[140px] flex items-center justify-center mr-3 ">
                   <img

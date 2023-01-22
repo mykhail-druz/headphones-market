@@ -42,7 +42,7 @@ export async function getStaticProps({ params }) {
   const products = await client.fetch(
     `*[_type == "product"] | order(_createdAt desc) [${offset}...${
       offset + limit
-    }]`
+    }]`,
   );
   const count = await client.fetch(`count(*[_type == "product"])`);
   return {

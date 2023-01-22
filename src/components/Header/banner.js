@@ -1,8 +1,8 @@
 import classNames from "classnames";
 import React, { useState, useEffect } from "react";
+import { CSSTransition } from "react-transition-group";
 import { urlFor } from "~/lib/client";
 import Button from "../Button/button";
-import { CSSTransition } from "react-transition-group";
 
 function Banner({ banner }) {
   const [currentBannerIndex, setCurrentBannerIndex] = useState(0);
@@ -42,8 +42,8 @@ function Banner({ banner }) {
                 {banner[currentBannerIndex].image && (
                   <img
                     src={urlFor(
-                      banner[currentBannerIndex].image &&
-                        banner[currentBannerIndex].image
+                      banner[currentBannerIndex].image
+                        && banner[currentBannerIndex].image,
                     ).url()}
                     className="object-scale-down"
                     alt="banner-image"

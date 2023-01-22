@@ -10,7 +10,7 @@ function Pagination({ totalItems, itemsPerPage, page }) {
   const firstVisiblePage = Math.max(1, page - Math.floor(maxVisiblePages / 2));
   const lastVisiblePage = Math.min(
     totalPages,
-    firstVisiblePage + maxVisiblePages - 1
+    firstVisiblePage + maxVisiblePages - 1,
   );
 
   const pageLinks = [];
@@ -29,11 +29,11 @@ function Pagination({ totalItems, itemsPerPage, page }) {
           "relative inline-flex items-center border px-4 py-2 text-sm font-medium focus:z-20",
           i === +page
             ? "z-10 bg-secondary border-secondary duration-500 text-white cursor-default hover:text-white"
-            : "border-primary hover:bg-secondary hover:text-white hover:border-secondary cursor-cursor duration-500 bg-white text-primary"
+            : "border-primary hover:bg-secondary hover:text-white hover:border-secondary cursor-cursor duration-500 bg-white text-primary",
         )}
       >
         {i}
-      </Link>
+      </Link>,
     );
   }
 
@@ -49,7 +49,7 @@ function Pagination({ totalItems, itemsPerPage, page }) {
             "relative inline-flex items-center border border-primary hover:bg-secondary hover:text-white hover:border-secondary bg-white p-2 text-sm font-medium text-primary duration-500 focus:z-20",
             +page === 1
               ? "cursor-default"
-              : "cursor-pointer border-primary hover:border-secondary cursor-cursor duration-500 bg-white text-primary"
+              : "cursor-pointer border-primary hover:border-secondary cursor-cursor duration-500 bg-white text-primary",
           )}
         >
           <ChevronLeftIcon className="w-5 h-5" />
@@ -64,7 +64,7 @@ function Pagination({ totalItems, itemsPerPage, page }) {
             "relative inline-flex items-center border px-4 py-2 text-sm font-medium focus:z-20",
             +page === 1
               ? "z-10 bg-red-500 border-red-500 duration-500 text-white cursor-default hover:text-white"
-              : "border-primary hover:bg-secondary hover:text-white hover:border-secondary cursor-pointer duration-500 bg-white text-primary"
+              : "border-primary hover:bg-secondary hover:text-white hover:border-secondary cursor-pointer duration-500 bg-white text-primary",
           )}
         >
           1
@@ -76,17 +76,17 @@ function Pagination({ totalItems, itemsPerPage, page }) {
         </span>
       )}
       {pageLinks}
-      {+page !== totalPages &&
-        +page !== totalPages - 1 &&
-        +page !== totalPages - 2 &&
-        +page !== totalPages - 3 && (
+      {+page !== totalPages
+        && +page !== totalPages - 1
+        && +page !== totalPages - 2
+        && +page !== totalPages - 3 && (
           <span className="relative inline-flex items-center border border-primary bg-white px-4 py-2 text-sm font-medium text-primary hover:bg-gray-50 focus:z-20">
             ...
           </span>
-        )}
-      {+page !== totalPages &&
-        +page !== totalPages - 1 &&
-        +page !== totalPages - 2 && (
+      )}
+      {+page !== totalPages
+        && +page !== totalPages - 1
+        && +page !== totalPages - 2 && (
           <Link
             href={`/products/${totalPages}`}
             key={totalPages}
@@ -94,18 +94,18 @@ function Pagination({ totalItems, itemsPerPage, page }) {
               "relative inline-flex items-center border px-4 py-2 text-sm font-medium focus:z-20",
               +page === totalPages
                 ? "z-10 bg-red-500 border-red-500 duration-500 text-white cursor-default hover:text-white"
-                : "border-primary hover:bg-red-500 hover:text-white hover:border-red-500 cursor-pointer duration-500 bg-white text-primary"
+                : "border-primary hover:bg-red-500 hover:text-white hover:border-red-500 cursor-pointer duration-500 bg-white text-primary",
             )}
           >
             {totalPages}
           </Link>
-        )}
+      )}
       {+page < totalPages && (
         <Link
           href={`/products/${+page + 1}`}
           className={classNames(
             "relative inline-flex items-center border border-primary hover:bg-secondary hover:text-white hover:border-secondary bg-white px-2 py-2 text-sm font-medium text-primary duration-500 focus:z-20",
-            +page === totalPages ? "cursor-default" : "cursor-pointer"
+            +page === totalPages ? "cursor-default" : "cursor-pointer",
           )}
         >
           <ChevronRightIcon className="w-5 h-5" />

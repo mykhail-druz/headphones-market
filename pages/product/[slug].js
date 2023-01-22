@@ -1,10 +1,10 @@
 import React from "react";
-import { client } from "~/lib/client";
-import { Button, ItemCount, ProductImages, LimitText } from "~/components";
-import { useStateContext } from "~/context/StateContext";
 import { loadStripe } from "@stripe/stripe-js";
-import getStripe from "~/lib/getStripe";
 import { toast } from "react-hot-toast";
+import { client } from "~/lib/client";
+import { Button, ItemCount, ProductImages } from "~/components";
+import { useStateContext } from "~/context/StateContext";
+import getStripe from "~/lib/getStripe";
 
 const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY

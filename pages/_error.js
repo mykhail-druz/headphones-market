@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Button } from "~/components";
+
 const ErrorPage = ({ statusCode, message }) => {
   return (
     <div className="w-full h-screen bg-black z-40 absolute flex flex-col text-white justify-center">
@@ -17,8 +18,8 @@ ErrorPage.getInitialProps = ({ res, err }) => {
   const message = res
     ? "An error occurred on the server"
     : err
-    ? err.message
-    : "An error occurred on the client";
+      ? err.message
+      : "An error occurred on the client";
 
   return { statusCode, message };
 };

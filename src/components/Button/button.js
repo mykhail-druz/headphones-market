@@ -2,7 +2,9 @@ import React from "react";
 import classNames from "classnames";
 import Link from "next/link";
 
-const Button = ({ children, link, className, outline, onClick }) => {
+const Button = ({
+  children, link, className, outline, onClick,
+}) => {
   return (
     <>
       {!link && (
@@ -13,7 +15,7 @@ const Button = ({ children, link, className, outline, onClick }) => {
               outline
                 ? "border-secondary text-secondary hover:bg-secondary hover:text-white border-2"
                 : "bg-secondary border-secondary hover:border-secondary text-white hover:text-secondary hover:bg-inherit",
-              className
+              className,
             )}
           >
             {children}
@@ -28,7 +30,7 @@ const Button = ({ children, link, className, outline, onClick }) => {
               outline
                 ? "border-secondary text-secondary hover:bg-secondary hover:text-white border-2"
                 : "bg-secondary border-secondary hover:border-secondary text-white hover:text-secondary hover:bg-inherit",
-              className
+              className,
             )}
           >
             {children}
