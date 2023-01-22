@@ -2,6 +2,7 @@ import classNames from "classnames";
 import React, { useState, useEffect } from "react";
 import { urlFor } from "~/lib/client";
 import Button from "../Button/button";
+import { CSSTransition } from "react-transition-group";
 
 function Banner({ banner }) {
   const [currentBannerIndex, setCurrentBannerIndex] = useState(0);
@@ -17,61 +18,43 @@ function Banner({ banner }) {
   }, []);
   return (
     <div className="flex flex-col">
-      <div className="md:h-[60vh] w-full border bg-white">
-        <div className="flex justify-between flex-col-reverse md:flex-row w-8/12 mx-auto h-full items-center">
-          <div className="flex flex-col p-4 m-4 w-[325px] md:justify-start justify-center text-center md:text-left">
-            <h1 className="text-3xl py-1">
+      <div className="lg:h-[60vh] h-[75vh] md:h-[40vh] mx-auto w-[90%] border rounded-xl border-primary bg-primary mt-6 text-white">
+        <div className="justify-between flex flex-col-reverse md:flex-row w-9/12 lg:w-6/12 mx-auto h-full items-center">
+          <div className="flex flex-col p-4 m-4 max-w-[325px] md:justify-start justify-center text-center md:text-left md:space-y-2">
+            <h1 className="text-2xl py-1 font-bold">
               {banner[currentBannerIndex].largeText1}
             </h1>
-            <h1 className="text-3xl py-1">
+            <h1 className="text-2xl py-1 font-bold">
               {banner[currentBannerIndex].largeText2}
             </h1>
             <p className="py-1">{banner[currentBannerIndex].desc}</p>
             <Button
               link={`/product/${banner[currentBannerIndex].slug.current}`}
-              className="w-48 my-1 border-2 cursor-pointer text-bold lg:mx-0 mx-auto"
+              className="w-48 my-1 border-2 cursor-pointer text-bold lg:mx-0 mx-auto md:m-0 mt-auto"
             >
               {banner[currentBannerIndex].buttonText}
             </Button>
           </div>
-          <div className="">
-            <div className="text-center mx-9">
-              {banner[currentBannerIndex].image && (
-                <img
-                  src={urlFor(
-                    banner[currentBannerIndex].image &&
-                      banner[currentBannerIndex].image
-                  ).url()}
-                  className="max-w-[375px] max-h-[375px]"
-                  alt="banner-image"
-                />
-              )}
-              <h2 className="text-3xl ">
-                {banner[currentBannerIndex].product}
-              </h2>
+
+          <div className="text-center flex flex-col space-y-1">
+            <div className="max-w-[275px] max-h-[275px]">
+              <CSSTransition in={true} timeout={300} classNames="fade">
+                {banner[currentBannerIndex].image && (
+                  <img
+                    src={urlFor(
+                      banner[currentBannerIndex].image &&
+                        banner[currentBannerIndex].image
+                    ).url()}
+                    className="object-scale-down"
+                    alt="banner-image"
+                  />
+                )}
+              </CSSTransition>
             </div>
+            <h2 className="text-2xl ">{banner[currentBannerIndex].product}</h2>
           </div>
         </div>
-      </div>
-      <div>
-        <span
-          className={classNames(
-            "rounded-full w-3 h-3 bg-gray-light bg-opacity-90",
-            currentBannerIndex ? "bg-opacity-100" : ""
-          )}
-        ></span>
-        <span
-          className={classNames(
-            "rounded-full w-3 h-3 bg-gray-light bg-opacity-90",
-            currentBannerIndex ? "bg-opacity-100" : ""
-          )}
-        ></span>
-        <span
-          className={classNames(
-            "rounded-full w-3 h-3 bg-gray-light bg-opacity-90",
-            currentBannerIndex ? "bg-opacity-100" : ""
-          )}
-        ></span>
+        <div></div>
       </div>
     </div>
   );

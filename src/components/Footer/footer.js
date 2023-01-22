@@ -28,7 +28,7 @@ const Footer = () => (
         target="_blank"
         className="bg-white border-0 rounded-full duration-500 text-black hover:bg-black hover:text-white cursor-pointer"
       >
-        <Tg className="w-9 h-9 p-1 " />
+        <Tg className="w-9 h-9 p-[3px] mr-[1px]" />
       </Link>
       <Link
         href="https://www.instagram.com/mykhail.druz/"

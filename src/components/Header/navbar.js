@@ -9,7 +9,7 @@ const Navbar = () => {
   const { showCart, setShowCart, totalQuantities } = useStateContext();
 
   return (
-    <nav className="text-white bg-black flex justify-between px-3 py-3 items-center w-full fixed z-10">
+    <nav className="text-white bg-black flex justify-between px-6 py-3 items-center w-full fixed z-10">
       <Link
         href={"/"}
         className="flex items-center text-white hover:text-secondary duration-500"
@@ -21,7 +21,7 @@ const Navbar = () => {
         onClick={() => setShowCart(true)}
       >
         <CartIcon />
-        <span className="absolute right-0 bg-secondary rounded-full w-5 h-5 text-center text-sm hover:text-white text-white">
+        <span className="absolute right-3 -bottom-1 bg-secondary rounded-full w-5 h-5 text-center text-sm hover:text-white text-white">
           {totalQuantities}
         </span>
       </button>

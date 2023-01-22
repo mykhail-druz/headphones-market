@@ -5,7 +5,7 @@ import Link from "next/link";
 const Button = ({ children, link, className, outline, onClick }) => {
   return (
     <>
-      {onClick && (
+      {!link && (
         <div onClick={onClick}>
           <p
             className={classNames(
