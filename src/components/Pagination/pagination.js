@@ -56,7 +56,7 @@ function Pagination({ totalItems, itemsPerPage, page }) {
         </Link>
       )}
 
-      {+page !== 1 && +page !== 2 && +page !== 3 && (
+      {+page >= 4 && (
         <Link
           href={`/products/1`}
           key={1}

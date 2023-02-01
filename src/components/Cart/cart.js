@@ -94,7 +94,7 @@ const Cart = () => {
                 <div className="space-y-2 flex flex-col w-full">
                   <div className="flex items-center">
                     <h5>{item.name}</h5>
-                    <h4 className="ml-auto font-bold">{item.price}₴</h4>
+                    <h4 className="ml-auto font-bold">{item.price * item.quantity}₴</h4>
                   </div>
                   <div className="flex">
                     <ItemCount
