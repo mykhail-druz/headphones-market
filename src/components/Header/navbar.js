@@ -20,10 +20,10 @@ const Navbar = () => {
         <h1 className="text-2xl">e-USHKI</h1>
       </Link>
       <div className="flex object-center">
-        <div>
-        <Tooltip disableFocusListener disableTouchListener className="mr-4 text-center sm:z-10" title="+380950213825">
+      <div>
+        <Tooltip className="mr-4 text-center sm:z-10" title="+380950213825">
           <IconButton>
-            <FiPhoneCall className="h-7 w-7 text-white hover:text-secondary duration-500"/>
+            <a href="tel:+380950213825"><FiPhoneCall className="h-7 w-7 text-white hover:text-secondary duration-500"/></a>
           </IconButton>
         </Tooltip>
       </div>
